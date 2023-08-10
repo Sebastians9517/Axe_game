@@ -8,13 +8,19 @@ int main() {
     // Circle position coordinates and size
     int circle_x = 200;
     int circle_y = 200;
-    int circle_radius = 20;
+    int circle_radius = 25;
+    // Circle edges
+    int left_circle_edge = (circle_x - circle_radius);
+    int right_circle_edge = (circle_x + circle_radius);
+    int top_circle_edge = (circle_y - circle_radius);
+    int bottom_circle_edge = (circle_y + circle_radius);
     // Axe position coordinates and size
     int axe_x = 300;
     int axe_y = 0;
-    int axe_width = 50;
-    int axe_height = 50;
+    int axe_length = 50;
     int direction = 10;
+    
+    
 
     SetTargetFPS(60);
     // While loop to prevent window from closing unless X or ESC are pressed.
@@ -24,7 +30,7 @@ int main() {
 
         // Game logic begins
         DrawCircle(circle_x, circle_y, circle_radius, RED);
-        DrawRectangle(axe_x, axe_y, axe_width, axe_height, BLUE);
+        DrawRectangle(axe_x, axe_y, axe_length, axe_length, BLUE);
         // Falling axe
         axe_y += direction;
         if ((axe_y > height-20) || (axe_y <= -30)){
