@@ -19,8 +19,11 @@ int main() {
     int axe_y = 0;
     int axe_length = 50;
     int direction = 10;
-    
-    
+    // Axe edges
+    int left_axe_edge = (axe_x);
+    int right_axe_edge = (axe_x + axe_length);
+    int top_axe_edge = (axe_y);
+    int bottom_axe_edge = (axe_y + axe_length);
 
     SetTargetFPS(60);
     // While loop to prevent window from closing unless X or ESC are pressed.
