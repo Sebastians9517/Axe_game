@@ -2,9 +2,9 @@
 
 int main() {
     // Window dimensions
-    int width = 800;
-    int height = 450;    
-    InitWindow(width, height, "Axe game");
+    int window_width = 800;
+    int window_height = 450;    
+    InitWindow(window_width, window_height, "Axe game");
     // Circle position coordinates and size
     int circle_x = 200;
     int circle_y = 200;
@@ -24,34 +24,38 @@ int main() {
     int right_axe_edge = (axe_x + axe_length);
     int top_axe_edge = (axe_y);
     int bottom_axe_edge = (axe_y + axe_length);
+    // Collision detection
+    bool collision_with_axe = false;
 
     SetTargetFPS(60);
     // While loop to prevent window from closing unless X or ESC are pressed.
     while (!WindowShouldClose()){
         BeginDrawing(); // Initialize our canvas
         ClearBackground(WHITE); // Clearing background to prevent flickering
+        if (collision_with_axe) {
+            DrawText("GAME OVER", (window_width/2), (window_height/2), 25, PURPLE);
+        } else {
+            // Game logic begins
+            DrawCircle(circle_x, circle_y, circle_radius, RED);
+            DrawRectangle(axe_x, axe_y, axe_length, axe_length, BLUE);
+            // Falling axe
+            axe_y += direction;
+            if ((axe_y > window_height) || (axe_y < 0)){
+                direction = -direction;
+            }
 
-        // Game logic begins
-        DrawCircle(circle_x, circle_y, circle_radius, RED);
-        DrawRectangle(axe_x, axe_y, axe_length, axe_length, BLUE);
-        // Falling axe
-        axe_y += direction;
-        if ((axe_y > height-20) || (axe_y <= -30)){
-            direction = -direction;
+            // Moving the dot        
+            if (IsKeyDown(KEY_D) && ((circle_x + circle_radius) < window_height)){
+                circle_x += 10;
+            } else if (IsKeyDown(KEY_A) && (circle_x > 0)){
+                circle_x -= 10;   
+            } else if (IsKeyDown(KEY_W) && (circle_y > 0)){
+                circle_y -= 10;
+            } else if (IsKeyDown(KEY_S) && (circle_y < window_height)){
+                circle_y += 10;
+            }
         }
-
-        // Moving the dot        
-        if (IsKeyDown(KEY_D) && ((circle_x + circle_radius) < width)){
-            circle_x += 10;
-        } else if (IsKeyDown(KEY_A) && (circle_x > 0)){
-            circle_x -= 10;   
-        } else if (IsKeyDown(KEY_W) && (circle_y > 0)){
-            circle_y -= 10;
-        } else if (IsKeyDown(KEY_S) && (circle_y < height)){
-            circle_y += 10;
-        }
-    
-
+            // Game logic ends
         EndDrawing();
     }
 }
