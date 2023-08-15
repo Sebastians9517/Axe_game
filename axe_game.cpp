@@ -46,10 +46,10 @@ int main() {
             top_circle_edge = (circle_y - circle_radius);
             bottom_circle_edge = (circle_y + circle_radius);
             // Updating axe edges for collision detection
-            left_axe_edge = left_axe_edge;
-            right_axe_edge = right_axe_edge;
-            top_axe_edge = top_axe_edge;
-            bottom_axe_edge = bottom_axe_edge;
+            left_axe_edge = (axe_x);
+            right_axe_edge = (axe_x + axe_length);
+            top_axe_edge = (axe_y);
+            bottom_axe_edge = (axe_y + axe_length);
 
             DrawCircle(circle_x, circle_y, circle_radius, RED);
             DrawRectangle(axe_x, axe_y, axe_length, axe_length, BLUE);
