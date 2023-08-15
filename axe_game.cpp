@@ -40,6 +40,13 @@ int main() {
             DrawText("GAME OVER", (window_width/2), (window_height/2), 35, PURPLE);
         } else {
             // Game logic begins
+            // Updating circle edges for collision detection
+            left_circle_edge = left_circle_edge;
+            right_circle_edge = right_circle_edge;
+            top_circle_edge = top_circle_edge;
+            bottom_circle_edge = bottom_circle_edge;
+    
+
             DrawCircle(circle_x, circle_y, circle_radius, RED);
             DrawRectangle(axe_x, axe_y, axe_length, axe_length, BLUE);
             // Falling axe
