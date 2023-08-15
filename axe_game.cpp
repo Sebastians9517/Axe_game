@@ -50,6 +50,11 @@ int main() {
             right_axe_edge = (axe_x + axe_length);
             top_axe_edge = (axe_y);
             bottom_axe_edge = (axe_y + axe_length);
+            // Updating boolean for collision with axe each frame
+            collision_with_axe = ((bottom_axe_edge >= top_circle_edge) &&
+                                  (top_axe_edge <= bottom_circle_edge) &&
+                                  (right_axe_edge >= left_circle_edge) &&
+                                  (left_axe_edge <= right_circle_edge));
 
             DrawCircle(circle_x, circle_y, circle_radius, RED);
             DrawRectangle(axe_x, axe_y, axe_length, axe_length, BLUE);
