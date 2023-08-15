@@ -41,10 +41,10 @@ int main() {
         } else {
             // Game logic begins
             // Updating circle edges for collision detection
-            left_circle_edge = left_circle_edge;
-            right_circle_edge = right_circle_edge;
-            top_circle_edge = top_circle_edge;
-            bottom_circle_edge = bottom_circle_edge;
+            left_circle_edge = (circle_x - circle_radius);
+            right_circle_edge = (circle_x + circle_radius);
+            top_circle_edge = (circle_y - circle_radius);
+            bottom_circle_edge = (circle_y + circle_radius);
             // Updating axe edges for collision detection
             left_axe_edge = left_axe_edge;
             right_axe_edge = right_axe_edge;
