@@ -37,7 +37,7 @@ int main() {
         BeginDrawing(); // Initialize our canvas
         ClearBackground(WHITE); // Clearing background to prevent flickering
         if (collision_with_axe) {
-            DrawText("GAME OVER", (window_width/2), (window_height/2), 35, PURPLE);
+            DrawText("GAME OVER", ((window_width/2) - 90), ((window_height/2) - 50), 35, PURPLE);
         } else {
             // Game logic begins
             // Updating circle edges for collision detection
